@@ -7,10 +7,10 @@ import "./index.css";
 import App from "./App";
 import { store } from "./app/store";
 import { fetchUsers } from "./features/users/usersSlice";
-import { fetchPosts } from "./features/posts/postsSlice";
+import { extendedApiSlice } from "./features/posts/postsSlice";
 
 store.dispatch(fetchUsers());
-store.dispatch(fetchPosts());
+store.dispatch(extendedApiSlice.endpoints.getPosts.initiate());
 
 ReactDOM.render(
   <React.StrictMode>
