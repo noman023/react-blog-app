@@ -1,12 +1,13 @@
-import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 
 import { useGetPostsByUserIdQuery } from "../posts/postsSlice";
-import { selectUserById } from "../users/usersSlice";
+import { useGetUserByIdQuery } from "./usersSlice";
 
 const UserPage = () => {
   const { userId } = useParams();
-  const user = useSelector((state) => selectUserById(state, Number(userId)));
+  const { data: users, isLoading: isUserLoading } = useGetUserByIdQuery(
+    Number(userId)
+  );
 
   const {
     data: userPosts,
@@ -32,7 +33,7 @@ const UserPage = () => {
 
   return (
     <section>
-      <h2>{user?.name}'s All Posts</h2>
+      {!isUserLoading && <h2>{users[0].name}'s All Posts</h2>}
 
       <ol>{content}</ol>
     </section>

@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { useGetAllUsersQuery } from "../users/usersSlice";
 import { useAddNewPostMutation } from "./postsSlice";
-import { selectAllUsers } from "../users/usersSlice";
 
 const AddPostForm = () => {
   const [addNewPost, { isLoading }] = useAddNewPostMutation();
@@ -13,7 +12,7 @@ const AddPostForm = () => {
   const [content, setContent] = useState("");
   const [userId, setUserId] = useState("");
 
-  const users = useSelector(selectAllUsers);
+  const { data: users } = useGetAllUsersQuery();
 
   const onTitleChanged = (e) => setTitle(e.target.value);
   const onContentChanged = (e) => setContent(e.target.value);

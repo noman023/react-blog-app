@@ -233,17 +233,11 @@
   ],
   "posts": [
     {
-      "userId": 1,
       "id": 1,
       "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-      "reactions": {
-        "thumbsUp": 5,
-        "wow": 4,
-        "heart": 3,
-        "rocket": 3,
-        "coffe": 0
-      }
+      "body": "testing if working or not.",
+      "userId": 1,
+      "date": "2023-01-09T12:37:24.299Z"
     },
     {
       "userId": 1,
@@ -858,6 +852,20 @@
       "userId": null,
       "date": "2023-01-03T14:27:15.471Z",
       "id": 101
+    },
+    {
+      "title": "test title",
+      "body": "test post body.",
+      "userId": 4,
+      "date": "2023-01-09T12:39:47.588Z",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffe": 0
+      },
+      "id": 102
     }
   ]
 }

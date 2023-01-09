@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { selectAllUsers } from "../users/usersSlice";
+import { useGetAllUsersQuery } from "../users/usersSlice";
 import {
   selectPostById,
   useDeletePostMutation,
@@ -17,7 +17,7 @@ const EditPostForm = () => {
   const [deletePost] = useDeletePostMutation();
 
   const post = useSelector((state) => selectPostById(state, Number(postId)));
-  const users = useSelector(selectAllUsers);
+  const { data: users } = useGetAllUsersQuery();
 
   const [title, setTitle] = useState(post?.title);
   const [content, setContent] = useState(post?.body);

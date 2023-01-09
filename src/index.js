@@ -6,10 +6,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import { store } from "./app/store";
-import { fetchUsers } from "./features/users/usersSlice";
 import { extendedApiSlice } from "./features/posts/postsSlice";
+import { userSlice } from "./features/users/usersSlice";
 
-store.dispatch(fetchUsers());
+store.dispatch(userSlice.endpoints.getAllUsers.initiate());
 store.dispatch(extendedApiSlice.endpoints.getPosts.initiate());
 
 ReactDOM.render(
